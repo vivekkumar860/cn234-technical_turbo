@@ -1,0 +1,171 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+header {
+  background-color: #333;
+  height: 71px;
+}
+
+.movie-search {
+  display: flex;
+  width: 70vh;
+  background-image: url(icons8-search-50.png);
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-position-x: 12px;
+  background-position-y: 5px;
+  padding: 8px;
+  padding-left: 50px;
+  font-size: 16px;
+  border-radius: 9px;
+  position: relative;
+  top: 15px;
+  left: 445px;
+}
+.sign-in {
+  width: 69px;
+  height: 29px;
+  border-radius: 8px;
+  background-color: #0072ff;
+  border: 1px solid #0072ff;
+  margin: 2px;
+  padding: 4px 10px;
+  float: right;
+  position: relative;
+  top: -22px;
+  right: 59px;
+}
+a {
+  color: white;
+}
+nav {
+  background-color: rgb(31, 37, 51);
+  height: 78px;
+  width: 100%;
+  position: sticky;
+}
+nav ul {
+  position: sticky;
+  float: right;
+  margin-right: 130px;
+}
+nav ul li {
+  display: inline-block;
+  margin: -11px 17px;
+  line-height: 83px;
+  padding: 10px;
+  height: 89px;
+}
+nav ul li a {
+  color: rgb(204, 204, 204);
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+}
+nav ul li a:hover {
+  color: rgb(255, 255, 255);
+  font-size: 21px;
+}
+.rec-mov {
+  padding: 21px 0px 20px 17px;
+}
+.grid-container1 {
+  height: 469px;
+  display: flex;
+  flex-direction: row;
+  gap: 34px;
+  scroll-behavior: smooth;
+  transition: transform 1000ms ease 0s;
+  overscroll-behavior-x: contain;
+  padding: 0px;
+  overflow: scroll;
+  transform: initial;
+  margin: 0 11px;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+.content {
+  display: inline-block;
+  width: 207px;
+  height: 299px;
+}
+.img {
+  width: 206px;
+  height: 298px;
+  border-radius: 13px;
+  box-shadow: 17px 14px 24px gray;
+  transition: transform 0.3s ease-in-out;
+}
+.img:hover {
+  transform: scale(1.05);
+}
+.grid-caption {
+  margin-top: 12px;
+}
+.movie-caption {
+  display: inline-block;
+  color: #000000;
+  font-size: 16px;
+  position: relative;
+  top: 6px;
+  left: 3px;
+}
+.lang {
+  color: #000000ba;
+  position: relative;
+  top: 16px;
+  left: 3px;
+}
+.section2 {
+  background-color: azure;
+}
+.event-caption {
+  display: inline-block;
+  color: #000000;
+  font-size: 14px;
+  position: relative;
+  top: 6px;
+  left: 3px;
+}
+.venue {
+  color: #373535;
+  font-size: 17px;
+  font-weight: 400;
+  position: relative;
+  top: 16px;
+  left: 3px;
+}
+.price {
+  color: #201c1cab;
+  font-size: 13px;
+  position: relative;
+  top: 25px;
+  left: 4px;
+}
+.type {
+  color: #201c1cab;
+  font-size: 15px;
+  position: relative;
+  top: 20px;
+  left: 3px;
+}
+@media only screen and (max-width: 768px) {
+
+  .grid-container1 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust grid for smaller screens */
+    gap: 20px;
+  }
+  .content {
+    width: 100%;
+  }
+
+}

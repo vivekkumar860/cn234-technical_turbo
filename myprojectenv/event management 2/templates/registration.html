@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Register for {{ event['name'] }}</h2>
+    <form id="registrationForm" action="{{ url_for('register', event_id=event_id) }}" method="post">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.name.label }}
+            {{ form.name(class="form-control") }}
+            <div class="invalid-feedback">
+                Please provide a valid name.
+            </div>
+        </div>
+        <!-- Repeat for other fields -->
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+</div>
+<script>
+document.getElementById('registrationForm').addEventListener('submit', function(event) {
+    // Example of client-side validation
+    let isValid = true;
+    const nameInput = document.querySelector('#name');
+    if (nameInput.value.trim() === '') {
+        nameInput.classList.add('is-invalid');
+        isValid = false;
+    } else {
+        nameInput.classList.remove('is-invalid');
+    }
+    if (!isValid) {
+        event.preventDefault(); // Prevent form from submitting
+    }
+});
+</script>
+{% endblock %}
