@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Event Management Site</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Welcome to the Event Management Site</h1>
+        <div>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+        <a href="/create_event" class="btn btn-primary my-3">Create a New Event</a>
+        <ul class="list-group">
+            {% for event in events %}
+                <li class="list-group-item">{{ event['name'] }} - <a href="/register/{{ loop.index0 }}">Register</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

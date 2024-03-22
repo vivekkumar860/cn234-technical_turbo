@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login - Movie Ticketing</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #0669cf8a;
+      }
+
+      .container {
+        width: 24%;
+        height: 248px;
+        margin: 100px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 8px 4px 6px #8080808a;
+      }
+
+      h1 {
+        text-align: center;
+        color: #090809ba;
+        margin-top: 19px;
+        margin-bottom: 39px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .input-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        margin-bottom: 6px;
+      }
+      input {
+        width: 290px;
+        height: 25px;
+        margin-left: 30px;
+        font-size: 15px;
+      }
+      input[type="text"],
+      input[type="password"] {
+        padding: 8px;
+      }
+
+      .btn-login {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-login:hover {
+        background-color: #0056b3;
+      }
+
+      #login-status {
+        text-align: center;
+        color: red;
+        font-weight: bold;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Login</h1>
+      <form id="login-form">
+        <div class="input-group">
+          <label for="email"></label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="E-Mail"
+            required
+          />
+        </div>
+        <div class="input-group">
+          <label for="password"></label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <button type="submit" class="btn-login">
+          <a href="./Movie Today.html">Login</a>
+        </button>
+      </form>
+      <p id="login-status"></p>
+    </div>
+  </body>
+</html>
+
+<script>
+  document
+    .getElementById("login-form")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+
+      localStorage.setItem("email", email);
+      localStorage.setItem("password", password);
+
+      window.location.href = "./Movie Today.html";
+    });
+</script>
