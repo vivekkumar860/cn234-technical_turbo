@@ -17,19 +17,29 @@ def home():
 
 @app.route('/create_event', methods=['GET', 'POST'])
 def create_event():
-    if request.method == 'POST':
-        try:
-            event_details = {
-                'name': request.form['name'],
-                'date': datetime.strptime(request.form['date'], '%Y-%m-%d'),
-                'location': request.form['location']
-            }
-            events.append(event_details)
-            flash('Event created successfully!', 'success')
-        except ValueError as e:
-            flash(f'Error creating event: {str(e)}', 'error')
+    form = EventForm()
+    if form.validate_on_submit():
+        # Assuming you save the filename or generate a path for the image
+        filename = secure_filename(form.image.data.filename)
+        form.image.data.save(os.path.join('path/to/save/images', filename))
+
+        event_details = {
+            'name': form.name.data,
+            'organizer': form.organizer.data,
+            'start_time': form.start_time.data.strftime('%Y-%m-%d %H:%M'),
+            'end_time': form.end_time.data.strftime('%Y-%m-%d %H:%M'),
+            'date': form.date.data.strftime('%Y-%m-%d'),
+            'location': form.location.data,
+            'capacity': form.capacity.data,
+            'description': form.description.data,
+            'event_type': form.event_type.data,
+            'image': filename  # Store path or identifier for the image
+        }
+        events.append(event_details)  # Assuming events is a list. In a real app, you'd save this to a database.
+        flash('Event created successfully!', 'success')
         return redirect(url_for('home'))
-    return render_template('create_event.html')
+    return render_template('create_event.html', form=form)
+
 
 @app.route('/register/<int:event_id>', methods=['GET', 'POST'])
 def register(event_id):

@@ -5,6 +5,9 @@
 ##Member_4:Abhay Singh, 12316804, Cse-ai and ml
 ##Member_5:Adarsh Mandla, 12323048,CSe -ai and ml
 
+Blitz is the origional one
+first open from login page
+then the home page
 
 ##Problem: Wd213
 ##Event Management Website
